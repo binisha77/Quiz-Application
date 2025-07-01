@@ -9,6 +9,7 @@ import java.awt.event.*;
 public class Login extends JFrame implements ActionListener{
    
     JButton rules,back;
+    JTextField tfname;
     Login()
     {
         
@@ -32,7 +33,7 @@ public class Login extends JFrame implements ActionListener{
         name.setForeground(new Color(30,144,254));
         add(name);
         
-        JTextField tfname = new JTextField();
+        tfname = new JTextField();
         tfname.setBounds(735, 200, 300,25);
         tfname.setFont(new Font("Time New Roman", Font.BOLD,20));
         add(tfname);
@@ -60,6 +61,9 @@ public class Login extends JFrame implements ActionListener{
     //override function
     public void actionPerformed(ActionEvent ae){
       if(ae.getSource()  == rules){
+          String name = tfname.getText();
+          setVisible(false);
+          new Rules(name);
         
     }else if(ae.getSource()== back){
            setVisible(false); 
