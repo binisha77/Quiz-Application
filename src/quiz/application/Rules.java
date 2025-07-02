@@ -14,7 +14,7 @@ public class Rules extends JFrame implements ActionListener{
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
         
-         JLabel heading = new JLabel("Welcome "+ name + "to Simple Minds");
+         JLabel heading = new JLabel("Welcome "+ name + " to Simple Minds");
         heading.setBounds(50,20,700,30);
         heading.setFont(new Font("Viner Hand ITC ",Font.BOLD,28));
         heading.setForeground(new Color(30,144,254));
@@ -27,7 +27,8 @@ public class Rules extends JFrame implements ActionListener{
                 "<html>"+
                      "1.You are trained to be a programmer an dnot a story teller,answer to point"+"<br><br>"+   
                      "2.Do not get nervous if your friend is answering more questions, may" +"<br><br>"+
-                        
+                     "3.The Start button should likely open the quiz"+"<br><br>" +
+                     "4.The Back button correctly returns to Login." +"<br><br>"+
                 "<html>"
         );
         add(rules);
