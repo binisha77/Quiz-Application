@@ -8,6 +8,9 @@ public class Quiz extends JFrame{
     String questions[][] = new String[10][5];
     String answers[][] = new String[10][2];
     
+    JLabel qno,question;//global declear
+    JRadioButton opt1,opt2,opt3,opt4;
+    
     Quiz(){
         setBounds(50 ,0 ,1440,850);
         getContentPane().setBackground(Color.WHITE);
@@ -18,12 +21,12 @@ public class Quiz extends JFrame{
         image.setBounds(0,0,1440,392);
         add(image);
         
-        JLabel qno = new JLabel("1");
+        qno = new JLabel("1");
         qno.setBounds(100,450,50,30);
         qno.setFont(new Font("Tahoma",Font.PLAIN,24));
         add(qno);
         
-         JLabel question = new JLabel("This is a question");
+         question = new JLabel();
         question.setBounds(150,450,900,30);
         question.setFont(new Font("Tahoma",Font.PLAIN,24));
         add(question);
@@ -99,32 +102,72 @@ public class Quiz extends JFrame{
         answers[8][1] = "java.lang.StringBuilder";
         answers[9][1] = "Bytecode is executed by JVM";
 
-        JRadioButton opt1 = new JRadioButton("option 1");
+        opt1 = new JRadioButton();
         opt1.setBounds(170,520,700,30);
         opt1.setBackground(Color.WHITE);
         opt1.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt1);
         
-         JRadioButton opt2 = new JRadioButton("option 2");
+        opt2 = new JRadioButton();
         opt2.setBounds(170,560,700,30);
         opt2.setBackground(Color.WHITE);
         opt2.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt2);
         
-         JRadioButton opt3 = new JRadioButton("option 3");
+        opt3 = new JRadioButton();
         opt3.setBounds(170,600,700,30);
         opt3.setBackground(Color.WHITE);
         opt3.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt3);
         
-         JRadioButton opt4 = new JRadioButton("option 4");
+        opt4 = new JRadioButton();
         opt4.setBounds(170,640,700,30);
         opt4.setBackground(Color.WHITE);
         opt4.setFont(new Font("Dialog", Font.PLAIN,20));
         add(opt4);
         
+        ButtonGroup groupoptions = new ButtonGroup();
+        groupoptions.add(opt1);
+        groupoptions.add(opt2);
+        groupoptions.add(opt3);
+        groupoptions.add(opt4);
+        
+        JButton next = new JButton("Next");
+        next.setBounds(1100,550,200,40);
+        next.setFont(new Font("Tahama",Font.PLAIN,22));
+        next.setBackground(new Color(30,144,255));
+        next.setForeground(Color.WHITE);
+        add(next);
+        
+        JButton lifeline = new JButton("50-50 Lifeline");
+        lifeline.setBounds(1100,630,200,40);
+        lifeline.setFont(new Font("Tahama",Font.PLAIN,22));
+        lifeline.setBackground(new Color(30,144,255));
+        lifeline.setForeground(Color.WHITE);
+        add(lifeline);
+        
+         JButton submit = new JButton("Submit");
+        submit.setBounds(1100,710,200,40);
+        submit.setFont(new Font("Tahama",Font.PLAIN,22));
+        submit.setBackground(new Color(30,144,255));
+        submit.setForeground(Color.WHITE);
+        submit.setEnabled(false);
+        add(submit);
+        
+        start(0);
+        
         setVisible(true);
     }
+    
+    public void start(int count){
+        qno.setText("" + count + 1 +". ");
+        question.setText(questions[count][0]);
+        opt1.setText(questions[count][1]);
+        opt2.setText(questions[count][2]);
+        opt3.setText(questions[count][3]);
+        opt4.setText(questions[count][4]);
+    }
+    
     public static void main(String[] args) {
         new Quiz();
         
