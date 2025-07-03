@@ -29,6 +29,7 @@ public class Rules extends JFrame implements ActionListener{
                      "2.Do not get nervous if your friend is answering more questions, may" +"<br><br>"+
                      "3.The Start button should likely open the quiz"+"<br><br>" +
                      "4.The Back button correctly returns to Login." +"<br><br>"+
+                     "5.Only 15sec time for answer the question" +"<br><br>"+
                 "<html>"
         );
         add(rules);
@@ -40,7 +41,7 @@ public class Rules extends JFrame implements ActionListener{
         back.addActionListener(this);
         add(back);
         
-        start = new JButton("Rules");
+        start = new JButton("Start");
         start.setBounds(400, 500, 100,30);
         start.setBackground(new Color(30,144,254));
         start.setForeground(Color.WHITE);
@@ -54,7 +55,8 @@ public class Rules extends JFrame implements ActionListener{
     
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource()==start){
-            
+            setVisible(false);
+            new Quiz(name);
         }else{
            setVisible(false); 
            new Login();
